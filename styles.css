@@ -1,0 +1,216 @@
+html body {
+  height: 100%;
+} /* assure 100% hauteur */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  /* 🌌 Image de fond (mets ton propre fichier ici) */
+  background-image: url("images/terre\ .jpeg"); /* image de fond */
+  background-size: cover; /* prend tout l’écran */
+  background-position: center; /* centrée */
+  background-repeat: no-repeat; /* pas de répétition */
+  background-attachment: fixed; /* reste fixe au scroll */
+
+  /* 🧭 Centrage du contenu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 🖋️ Style global du texte */
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+.question {
+  display: none;
+  position: relative; /* <-- important */
+  /* padding-bottom: 80px; */
+}
+.question.active {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* les boutons de réponse prennent toute la largeur */
+  /* gap: 12px; espace vertical entre éléments */
+  /* --- TITRE PRINCIPAL --- */
+  .question.active h2,
+  header h1 {
+    font-size: 2.2rem;
+    /* margin-bottom: 40px; */
+    color: #f5f5f5;
+    font-weight: 500;
+  }
+
+  /* --- BOUTON DE DÉMARRAGE --- */
+  .question.active button {
+    background-color: #304b75;
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: none;
+    border-radius: 50px; /* forme ovale */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .question.active button:hover {
+    background-color: #4266a1;
+  }
+}
+.question button {
+  display: block;
+  width: 100%; /* prend toute la largeur du conteneur */
+  max-width: 600px; /* limite la taille sur grand écran */
+  margin: 5px auto; /* espace entre les boutons et centrage */
+  padding: 16px 24px;
+  background-color: #1e1e2f; /* fond sombre */
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px; /* coins arrondis */
+  cursor: pointer;
+  transition: all 0.2s ease; /* animation douce */
+}
+
+/* effet quand on passe la souris */
+.question button:hover {
+  background-color: #2b2b3d;
+  transform: scale(1.02);
+}
+
+/* effet quand on clique */
+.question button:active {
+  background-color: #3a3a4f;
+  transform: scale(0.98);
+}
+
+/* Bouton "suivant" : petit, à droite */
+.question .suivant {
+  align-self: flex-end; /* aligne le bouton à droite dans la colonne */
+  width: auto; /* plus 100% */
+  max-width: none;
+  margin: 8px 0 0 auto; /* pousse à droite */
+  padding: 10px 26px;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.question .suivant:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+.question .suivant:active {
+  transform: translateY(0);
+}
+.progress-container {
+  display: none; /* ok pour départ */
+  position: relative;
+  height: 20px;
+  width: 100%; /* responsive */
+  max-width: 500px; /* limite sur grand écran */
+  margin: 8px auto; /* centre dans la carte */
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  display: none; /* cachée au départ */
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7c3aed, #22d3ee);
+  transition: width 300ms ease;
+}
+.progress-text {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #090808;
+  /* lisible sur clair/foncé */
+}
+
+/* effet au survol */
+.suivant:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* effet au clic */
+.suivant:active {
+  transform: translateY(0);
+}
+
+/* --- Cache le header du titre principal hors de la "carte" --- */
+header {
+  display: none;
+}
+
+/* --- Cache le reste au départ --- */
+main {
+  width: 100%;
+  text-align: center;
+  display: block;
+  background-color: rgba(13, 28, 53, 0.89); /* bleu nuit semi-transparent */
+  padding: 1px 10px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.progresseBarreChrono {
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.question img {
+  width: 70%;
+  max-width: 560px; /* s’adapte à la carte */
+  height: 250px; /* même hauteur partout */
+  object-fit: cover; /* recadre sans déformer */
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.result button:hover {
+  background-color: #2563eb;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

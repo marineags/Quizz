@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Quiz sur les capitales des pays</h1>
+    </header>
+    <main>
+      <div class="progresseBarreChrono">
+        <div class="progress-container" aria-label="Progression du quiz">
+          <div class="progress-bar" id="progressBar"></div>
+          <span class="progress-text" id="progressText">0%</span>
+        </div>
+        <div class="chronomettre">
+          <!-- affichage en gros caractères -->
+          <p
+            id="affichage"
+            style="
+              margin: 30px;
+              display: none;
+              font-size: 3em;
+              font-family: sans-serif;
+            "
+          >
+            0
+          </p>
+        </div>
+      </div>
+
+      <div class="question active">
+        <h2>
+          Commencer le quizz sur les <br />
+          capitales des pays 🌍
+        </h2>
+
+        <p>vous avez 10 secondes pour répondre aux questions</p>
+        <button type="button" onclick="startQuiz()">Commencer</button>
+      </div>
+
+      <div class="question 1">
+        <h2>Quelle est la capitale de l’Italie ?</h2>
+        <img src="images/italie.avif" alt="image de rome" />
+        <button value="0">Milan</button>
+        <button value="0">Florence</button>
+        <button value="1">Rome</button>
+        <button value="0">Naples</button>
+        <button class="suivant" type="button" onclick="nextQuestion()">
+          suivant
+        </button>
+      </div>
+      <div class="question 2">
+        <h2>Quelle est la capitale du Canada ?</h2>
+        <img src="images/canada.webp" alt="photo d'Ottawa" />
+        <button value="0">Toronto</button>
+        <button value="1">Ottawa</button>
+        <button value="0">Vancouver</button>
+        <button value="0">Montréal</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 3">
+        <h2>Quelle est la capitale du Japon ?</h2>
+        <img src="images/Japon.jpg" alt="photo de Tokyo" />
+        <button value="1">Tokyo</button>
+        <button value="0">Osaka</button>
+        <button value="0">Kyoto</button>
+        <button value="0">Nagoya</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 4">
+        <h2>Quelle est la capitale de l’Australie ?</h2>
+        <img src="images/Australie.jpg" alt="photo de Canberra" />
+        <button value="0">Sydney</button>
+        <button value="1">Canberra</button>
+        <button value="0">Melbourne</button>
+        <button value="0">Brisbane</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 5">
+        <h2>Quelle est la capitale du Bresil ?</h2>
+        <img src="images/rio.jpg.webp" alt="photo de Rio de Janeiro" />
+        <button value="0">Rio de Janero</button>
+        <button value="1">Bresilia</button>
+        <button value="0">Sao Paulo</button>
+        <button value="0">Salvador</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 6">
+        <h2>Quelle est la capitale de la Suisse ?</h2>
+        <img src="images/suisse.jpg" />
+        <button value="1">Berne</button>
+        <button value="0">Zurich</button>
+        <button value="0">Genève</button>
+        <button value="0">Lausanne</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 7">
+        <h2>Quelle est la capitale de la Norvège ?</h2>
+        <img src="images/norvege .webp" />
+        <button value="0">Stockholm</button>
+        <button value="1">Oslo</button>
+        <button value="0">Copenhague</button>
+        <button value="0">Helsinki</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 8">
+        <h2>Quelle est la capitale de l’égypte ?</h2>
+        <img src="images/Egypte.jpeg" />
+        <button value="1">Le Caire</button>
+        <button value="0">Alexandrie</button>
+        <button value="0">Louxor</button>
+        <button value="0">Assouan</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 9">
+        <h2>Quelle est la capitale de la corée du sud ?</h2>
+        <img src="images/coree-du-sud.jpg" />
+        <button value="1">Séoul</button>
+        <button value="0">Busan</button>
+        <button value="0">Incheon</button>
+        <button value="0">Daegu</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question 10">
+        <h2>Quelle est la capitale du Maroc ?</h2>
+        <img src="images/Maroc.jpg" />
+        <button value="0">Casablanca</button>
+        <button value="0">Marrakech</button>
+        <button value="1">Rabat</button>
+        <button value="0">Fès</button>
+        <button class="suivant" onclick="nextQuestion()">suivant</button>
+      </div>
+      <div class="question result">
+        <h2>Résultat du quiz</h2>
+        <p id="resultText" style="font-size: 1.5em; margin: 20px 0"></p>
+        <button class="recommencer" type="button" onclick="recommencerQuiz()">
+          Recommencer
+        </button>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="script.js" defer></script>
+</html>
